@@ -1,38 +1,105 @@
+/* Global settings */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
 .App {
+  flex: 1; /* Faz a App ocupar todo o espaço disponível entre o header e o footer */
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.main-content {
+  flex: 1; /* Expande o conteúdo principal para preencher a área disponível */
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* Navbar and footer adjustments */
+footer {
+  background-color: #343a40; /* Cor de fundo do footer */
+  color: white; /* Cor do texto */
+  padding: 1rem;
+  text-align: center;
+  width: 100%;
+  margin-top: auto; /* Mantém o footer no final do layout */
+  position: relative; /* Remove o position: fixed */
+  box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for the navbar on small screens (mobile-first) */
+@media (max-width: 767px) {
+  .navbar-collapse {
+    display: block !important;
+  }
+
+  .navbar-toggler {
+    display: block !important;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* Flexbox for making main content adjust correctly */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto; /* Allow horizontal scroll on small screens */
 }
 
-.App-link {
-  color: #61dafb;
+table {
+  width: 100%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+th, td {
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Responsive typography */
+h1, .display-4 {
+  font-size: 1.5rem; /* Adjust for smaller screens */
+}
+
+.lead {
+  font-size: 1rem;
+}
+
+/* Card adjustments */
+.custom-card {
+  background-color: #cce5ff; /* Azul claro */
+  border: 2px solid #007bff; /* Cor da borda */
+  border-radius: 10px; /* Bordas arredondadas */
+  text-decoration: dotted;
+  padding: 1rem;
+}
+
+/* Footer styling */
+footer {
+  background-color: #f1f1f1;
+  padding: 1rem;
+  text-align: center;
+  margin-top: auto; /* Ensure footer stays at the bottom */
+}
+
+footer.bg-dark {
+  background-color: #343a40;
+  padding: 1rem;
+  position: relative;
+  width: 100%;
+  text-align: center;
+}
+
+/* Add media queries for larger screens */
+@media (min-width: 767px) {
+  .table-responsive {
+    overflow-x: auto;
   }
-  to {
-    transform: rotate(360deg);
+  
+  /* Larger heading on medium screens */
+  .display-4 {
+    font-size: 1.5rem;
+  }
+
+  .custom-card {
+    max-width: 500px; /* Card max width */
   }
 }
